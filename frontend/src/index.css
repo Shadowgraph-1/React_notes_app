@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Inter:wght@400;600;700;800&family=Roboto:wght@400;500&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif; /* Более современный и универсальный шрифт */
+  margin: 0;
+  padding: 0;
+  background-color: #edede9; /* Using --isabelline as direct fallback */
+  color: #333;
+}
