@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef, useCallback, useMemo } from "react"
 import "../components/FirstPage.css";
 import "../components/SidebarAndSupport.css";
 import AuthPage from "../components/AuthPage";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 // Данные для блога
 const BLOG_POSTS = [
@@ -279,10 +281,7 @@ const Sidebar = () => {
         </div>
       </div>
       {showChats && (
-        <div
-          className="chat-window active"
-          ref={chatWindowRef}
-        >
+        <div className="chat-window active" ref={chatWindowRef}>
           <div className="chat-window-header">
             <h4>Чаты</h4>
             <button className="chat-window-close" onClick={() => setShowChats(false)} aria-label="Закрыть">
@@ -483,7 +482,7 @@ const ContactCard = React.memo(({ contact }) => (
 ));
 
 // Главный компонент
-const HomeStart = () => {
+const HomeStart = ({ isAuthenticated, setIsAuthenticated }) => {
   const [showClickMe, setShowClickMe] = useState(true);
   const [dealtCards, setDealtCards] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -525,6 +524,22 @@ const HomeStart = () => {
     if (card) card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
   }, [isMobile]);
 
+  const handleLogout = async () => {
+    try {
+      const token = localStorage.getItem('access_token');
+      await axios.post('http://localhost:5000/api/logout', {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('username');
+      setIsAuthenticated(false);
+      toast.success("Вы успешно вышли из аккаунта");
+    } catch (error) {
+      console.error("Ошибка при выходе:", error);
+      toast.error("Ошибка при выходе");
+    }
+  };
+
   const { carouselIndex, carouselTrackRef, extendedBlogPosts, handlePrev, handleNext, isTransitioning } = useCarousel();
 
   return (
@@ -538,18 +553,22 @@ const HomeStart = () => {
             <p>Организуй свои мысли и задачи с помощью быстрого и удобного приложения для заметок.</p>
           </div>
           <div className="cta-button animate-item">
-            <button className="start-button" onClick={() => setShowAuth(true)}>Начать</button>
+            {isAuthenticated ? (
+              <button className="start-button" onClick={handleLogout}>Выйти</button>
+            ) : (
+              <button className="start-button" onClick={() => setShowAuth(true)}>Начать</button>
+            )}
           </div>
         </section>
       </div>
 
-      {showAuth && (
+      {showAuth && !isAuthenticated && (
         <div 
           className={`auth-section ${showAuth ? 'active' : ''}`}
           onClick={() => setShowAuth(false)}
         >
           <div onClick={(e) => e.stopPropagation()}>
-            <AuthPage />
+            <AuthPage setIsAuthenticated={setIsAuthenticated} />
           </div>
         </div>
       )}
