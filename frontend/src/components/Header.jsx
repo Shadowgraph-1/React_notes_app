@@ -4,7 +4,7 @@ import "./Header.css";
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
-  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light"); // Установка начальной темы
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuRef = useRef(null);
@@ -52,7 +52,7 @@ function Header() {
     setTheme(newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
-    console.log("Theme switched to:", newTheme); // Отладка
+    console.log("Theme switched to:", newTheme);
   };
 
   const toggleMenu = () => {
@@ -101,7 +101,7 @@ function Header() {
           <div className="slider-knob">
             <svg className="sun sun-icon" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="5" fill="currentColor"/>
-              <g stroke="currentColor" stroke-width="2">
+              <g stroke="currentColor" strokeWidth="2">
                 <line x1="12" y1="1" x2="12" y2="3"/>
                 <line x1="12" y1="21" x2="12" y2="23"/>
                 <line x1="4.5" y1="4.5" x2="6.5" y2="6.5"/>
