@@ -25,3 +25,6 @@ dist-ssr
 *.sw?
 
 venv
+*.db
+__pycache__
+*.txt
