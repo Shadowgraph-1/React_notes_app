@@ -84,7 +84,7 @@ main {
   );
   background-size: 400% 400%;
   animation: gentleColorShift 15s ease infinite;
-  position: relative; /* Для абсолютного позиционирования формы */
+  position: relative;
 }
 
 @keyframes gentleColorShift {
@@ -707,7 +707,7 @@ main {
   padding: 2rem;
   opacity: 0;
   transition: opacity 0.4s ease;
-  z-index: 1000;
+  z-index: 1003; /* Увеличен, чтобы быть выше хедера (1002) */
   display: flex;
   align-items: center;
   justify-content: center;

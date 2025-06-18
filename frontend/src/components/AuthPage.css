@@ -6,11 +6,11 @@
   --champagne-pink: #e3d5ca;
   --pale-dogwood: #d5bdaf;
   --gunmetal-dark-text: #293241;
-  --eerie-black: #293241; /* Added for placeholder visibility in light theme */
+  --eerie-black: #293241;
 
   --bg-main: var(--isabelline);
   --bg-card: rgba(245, 235, 224, 0.8);
-  --text-primary: var(--gunmetal-rk-text);
+  --text-primary: var(--gunmetal-dark-text);
   --text-secondary: #333333;
   --accent-red-primary: var(--accent-grey-hover);
   --accent-red-hover: #7a603e;
@@ -65,8 +65,8 @@
   animation: gentleColorShift 15s ease infinite;
   font-family: "Roboto", sans-serif;
   padding: 2rem;
-  position: relative; /* Для управления z-index */
-  z-index: 1000; /* Выше других элементов, но ниже модальных окон, если есть */
+  position: relative;
+  z-index: 1000;
 }
 
 @keyframes gentleColorShift {
@@ -141,7 +141,7 @@
   position: relative;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: slideIn 0.6s ease-out forwards; /* Анимация появления */
+  animation: slideIn 0.6s ease-out forwards;
 }
 
 @keyframes slideIn {
@@ -309,7 +309,7 @@
 
 .auth-input::placeholder {
   color: var(--eerie-black);
-  opacity: 0.8; /* Increased opacity for better visibility */
+  opacity: 0.8;
 }
 
 .input-icon {
