@@ -127,24 +127,24 @@ function Header() {
             <div className="user-content">
               <ul className="user-column">
                 <h3 className="menu-item">Для пользователей</h3>
-                <li className="menu-item"><a href="#">Личный кабинет</a></li>
-                <li className="menu-item"><a href="#">Заметки</a></li>
-                <li className="menu-item"><a href="#">Календарь</a></li>
-                <li className="menu-item"><a href="#">Поддержка</a></li>
+                <li className="menu-item"><a href="/personal-acc">Личный кабинет</a></li>
+                <li className="menu-item"><a href="/create-note">Заметки</a></li>
+                <li className="menu-item"><a href="/calendar">Календарь</a></li>
+                <li className="menu-item"><a href="/support">Поддержка</a></li>
               </ul>
               <ul className="company-column">
                 <h3 className="menu-item">Для компаний</h3>
-                <li className="menu-item"><a href="#">Корпоративный доступ</a></li>
-                <li className="menu-item"><a href="#">API интеграция</a></li>
-                <li className="menu-item"><a href="#">Командные заметки</a></li>
-                <li className="menu-item"><a href="#">Аналитика</a></li>
+                <li className="menu-item"><a href="/corporate-access">Корпоративный доступ</a></li>
+                <li className="menu-item"><a href="/api-integration">API интеграция</a></li>
+                <li className="menu-item"><a href="/team-notes">Командные заметки</a></li>
+                <li className="menu-item"><a href="/analytics">Аналитика</a></li>
               </ul>
               <ul className="shop-column">
                 <h3 className="menu-item">Магазин</h3>
-                <li className="menu-item"><a href="#">Премиум подписка</a></li>
-                <li className="menu-item"><a href="#">Шаблоны заметок</a></li>
-                <li className="menu-item"><a href="#">Расширения</a></li>
-                <li className="menu-item"><a href="#">Подарочные карты</a></li>
+                <li className="menu-item"><a href="/premium-subscription">Премиум подписка</a></li>
+                <li className="menu-item"><a href="/note-templates">Шаблоны заметок</a></li>
+                <li className="menu-item"><a href="/extensions">Расширения</a></li>
+                <li className="menu-item"><a href="/gift-cards">Подарочные карты</a></li>
               </ul>
             </div>
           </div>
