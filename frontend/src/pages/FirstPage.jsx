@@ -2,45 +2,7 @@ import React, { useEffect, useState, useRef, useCallback, useMemo } from "react"
 import "../components/FirstPage.css";
 import "../components/SidebarAndSupport.css";
 import AuthPage from "../components/AuthPage";
-
-// Данные для блога
-const BLOG_POSTS = [
-  {
-    id: "post1",
-    title: "Как организовать свои заметки",
-    excerpt: "Узнайте лучшие практики для управления заметками и повышения продуктивности.",
-    fullContent: "В этой статье мы расскажем, как структурировать заметки, чтобы они помогали вам быть продуктивнее. Используйте категории, теги и приоритеты, чтобы держать всё под контролем.",
-    image: "../../src/assets/blog1.jpg",
-  },
-  {
-    id: "post2",
-    title: "Новое обновление NotesApp",
-    excerpt: "Ознакомьтесь с новыми функциями и улучшениями в последнем обновлении.",
-    fullContent: "Мы выпустили обновление NotesApp с улучшенной синхронизацией, новым дизайном и поддержкой тем. Узнайте, как это поможет вам работать эффективнее.",
-    image: "../../src/assets/blog2.jpg",
-  },
-  {
-    id: "post3",
-    title: "Советы по продуктивности",
-    excerpt: "Простые способы повысить эффективность с помощью NotesApp.",
-    fullContent: "Эти простые советы помогут вам использовать NotesApp на полную, чтобы организовать свои задачи и достичь целей быстрее.",
-    image: "../../src/assets/blog3.jpg",
-  },
-  {
-    id: "post4",
-    title: "Интервью с разработчиками",
-    excerpt: "Узнайте, как создавался NotesApp.",
-    fullContent: "Наши разработчики делятся историей создания NotesApp, рассказывают о вызовах и вдохновении, которое привело к созданию этого приложения.",
-    image: "../../src/assets/blog4.jpg",
-  },
-  {
-    id: "post5",
-    title: "Планы на будущее",
-    excerpt: "Что нового ждёт пользователей NotesApp.",
-    fullContent: "Мы готовим новые функции, включая интеграцию с календарями и улучшенный поиск. Узнайте, что ждёт NotesApp в ближайшем будущем.",
-    image: "../../src/assets/blog5.jpg",
-  },
-];
+import BlogCarousel from "../components/BlogCarousel";
 
 // Данные для карточек
 const CARD_DATA = [
@@ -103,10 +65,6 @@ const CHAT_CONTACTS = [
   { id: "chat3", name: "John" },
 ];
 
-// Константы
-const CARD_WIDTH = 320;
-const INITIAL_OFFSET = 2;
-
 // Хук для наблюдения за пересечением элементов
 const useIntersectionObserver = () => {
   useEffect(() => {
@@ -126,64 +84,6 @@ const useIntersectionObserver = () => {
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
-};
-
-// Хук для управления каруселью
-const useCarousel = () => {
-  const [carouselIndex, setCarouselIndex] = useState(INITIAL_OFFSET);
-  const [isAutoScroll, setIsAutoScroll] = useState(true);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const carouselTrackRef = useRef(null);
-
-  const extendedBlogPosts = useMemo(() => [
-    ...BLOG_POSTS.slice(-2),
-    ...BLOG_POSTS,
-    ...BLOG_POSTS.slice(0, 2),
-  ], []);
-
-  useEffect(() => {
-    if (!isAutoScroll || isTransitioning) return;
-    const interval = setInterval(() => setCarouselIndex((prev) => prev + 1), 3000);
-    return () => clearInterval(interval);
-  }, [isAutoScroll, isTransitioning]);
-
-  useEffect(() => {
-    if (!carouselTrackRef.current) return;
-    const track = carouselTrackRef.current;
-    const totalPosts = BLOG_POSTS.length;
-    track.style.transition = isTransitioning ? "none" : "transform 0.5s ease-in-out";
-    track.style.transform = `translateX(calc(-${carouselIndex * CARD_WIDTH}px + 50% - ${CARD_WIDTH / 2}px))`;
-
-    if (carouselIndex >= totalPosts + INITIAL_OFFSET) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCarouselIndex(INITIAL_OFFSET);
-        setIsTransitioning(false);
-      }, 500);
-    } else if (carouselIndex < INITIAL_OFFSET) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCarouselIndex(totalPosts + INITIAL_OFFSET - 1);
-        setIsTransitioning(false);
-      }, 500);
-    }
-  }, [carouselIndex, isTransitioning]);
-
-  const handleNavigation = useCallback((direction) => {
-    if (isTransitioning) return;
-    setCarouselIndex((prev) => prev + direction);
-    setIsAutoScroll(false);
-    setTimeout(() => setIsAutoScroll(true), 5000);
-  }, [isTransitioning]);
-
-  return {
-    carouselIndex,
-    carouselTrackRef,
-    extendedBlogPosts,
-    handlePrev: () => handleNavigation(-1),
-    handleNext: () => handleNavigation(1),
-    isTransitioning,
-  };
 };
 
 // Компонент боковой панели
@@ -246,7 +146,6 @@ const Sidebar = () => {
         <div
           className="sidebar-item"
           onClick={() => {
-            console.log("Toggle chat, showChats:", !showChats);
             setShowChats(!showChats);
             setActivePopup(null);
           }}
@@ -279,10 +178,7 @@ const Sidebar = () => {
         </div>
       </div>
       {showChats && (
-        <div
-          className="chat-window active"
-          ref={chatWindowRef}
-        >
+        <div className="chat-window active" ref={chatWindowRef}>
           <div className="chat-window-header">
             <h4>Чаты</h4>
             <button className="chat-window-close" onClick={() => setShowChats(false)} aria-label="Закрыть">
@@ -456,21 +352,6 @@ const Card = React.memo(({ card, index, isMobile, onMouseMove, onMouseLeave }) =
   </div>
 ));
 
-// Компонент карточки блога
-const BlogCard = React.memo(({ post, index, isCenter, onClick }) => (
-  <div
-    key={`${post.id}-${index}`}
-    className={`blog-card ${isCenter ? "center" : ""}`}
-    onClick={() => onClick(post)}
-  >
-    <div className="blog-card-image" style={{ backgroundImage: `url(${post.image || "/assets/placeholder.jpg"})` }} />
-    <div className="blog-card-content">
-      <h3>{post.title}</h3>
-      <p>{post.excerpt}</p>
-    </div>
-  </div>
-));
-
 // Компонент контактной карточки
 const ContactCard = React.memo(({ contact }) => (
   <div className="contact-card">
@@ -487,8 +368,6 @@ const HomeStart = () => {
   const [showClickMe, setShowClickMe] = useState(true);
   const [dealtCards, setDealtCards] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [showList, setShowList] = useState(false);
-  const [selectedPost, setSelectedPost] = useState(null);
   const [showAuth, setShowAuth] = useState(false);
 
   useIntersectionObserver();
@@ -524,8 +403,6 @@ const HomeStart = () => {
     const card = document.getElementById(`card-${cardId}`);
     if (card) card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
   }, [isMobile]);
-
-  const { carouselIndex, carouselTrackRef, extendedBlogPosts, handlePrev, handleNext, isTransitioning } = useCarousel();
 
   return (
     <main>
@@ -590,77 +467,7 @@ const HomeStart = () => {
           </div>
           <div className="blog-content animate-item">
             <p>Присоединяйся к нашему новостному блогу прямо сейчас</p>
-            <div className="blog-carousel">
-              <button
-                className="carousel-prev"
-                onClick={handlePrev}
-                disabled={isTransitioning}
-                aria-label="Предыдущий пост"
-              >
-                ❮
-              </button>
-              <div className="carousel-track-wrapper">
-                <div
-                  className="carousel-track"
-                  ref={carouselTrackRef}
-                  style={{ willChange: "transform", backfaceVisibility: "hidden" }}
-                >
-                  {extendedBlogPosts.map((post, index) => (
-                    <BlogCard
-                      key={`${post.id}-${index}`}
-                      post={post}
-                      index={index}
-                      isCenter={index === carouselIndex}
-                      onClick={setSelectedPost}
-                    />
-                  ))}
-                </div>
-              </div>
-              <button
-                className="carousel-next"
-                onClick={handleNext}
-                disabled={isTransitioning}
-                aria-label="Следующий пост"
-              >
-                ❯
-              </button>
-              <div className="button-wrapper">
-                <button className="show-list-button" onClick={() => setShowList((prev) => !prev)}>
-                  {showList ? "Скрыть список" : "Показать список"}
-                </button>
-              </div>
-              {showList && (
-                <div className="blog-list">
-                  {BLOG_POSTS.map((post) => (
-                    <div
-                      key={post.id}
-                      className="blog-list-item"
-                      onClick={() => {
-                        setSelectedPost(post);
-                        setShowList(false);
-                      }}
-                    >
-                      {post.title}
-                    </div>
-                  ))}
-                </div>
-              )}
-              {selectedPost && (
-                <div className="blog-modal" onClick={() => setSelectedPost(null)}>
-                  <div className="blog-modal-content" onClick={(e) => e.stopPropagation()}>
-                    <button
-                      className="modal-close"
-                      onClick={() => setSelectedPost(null)}
-                      aria-label="Закрыть модальное окно"
-                    >
-                      ×
-                    </button>
-                    <h2>{selectedPost.title}</h2>
-                    <p>{selectedPost.fullContent}</p>
-                  </div>
-                </div>
-              )}
-            </div>
+            <BlogCarousel />
           </div>
         </section>
       </div>
