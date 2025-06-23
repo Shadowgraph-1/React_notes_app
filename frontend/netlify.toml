@@ -1,5 +1,5 @@
 [build]
-  base = "frontend"
-  command = "npm run build"
-  publish = "frontend/dist"
+  base = "frontend"           # Указывает корень проекта (где package.json)
+  command = "npm run build"   # Команда сборки
+  publish = "frontend/dist"   # Правильный путь к собранным файлам
   environment = { NODE_VERSION = "22.16.0", PHP_VERSION = "" }
