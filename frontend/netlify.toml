@@ -2,3 +2,4 @@
   base = "frontend"
   command = "npm run build"
   publish = "frontend/dist"
+  environment = { NODE_VERSION = "22.16.0", PHP_VERSION = "" }
