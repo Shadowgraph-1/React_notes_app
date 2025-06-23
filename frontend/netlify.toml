@@ -1,5 +1,0 @@
-[build]
-  base = "./"
-  command = "rm -rf node_modules && npm install && npm run build"
-  publish = "./dist/"
-  environment = { NODE_VERSION = "22.16.0", PHP_VERSION = "" }
