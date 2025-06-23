@@ -1,7 +1,8 @@
 [build]
   base = "./"
   publish = "dist"
-  command = "npm run build"
+  command = "rm -rf node_modules && npm install && npm run build"
+  
 
 [[redirects]]
   from = "/*"
