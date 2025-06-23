@@ -69,11 +69,7 @@ function Header() {
     <>
       <header className="header-main">
         <div className="header-logo">
-          <img
-            src="../../src/assets/logo.jpg"
-            alt="NotesApp Logo"
-            className="logo-img"
-          />
+          <img src="/logo.jpg" alt="NotesApp Logo" className="logo-img" />
           <h1 className="animated-text">NotesApp</h1>
         </div>
         <button
