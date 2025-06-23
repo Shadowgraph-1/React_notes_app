@@ -1,0 +1,248 @@
+/* TeamNotesPage.css */
+.teamnotes-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.teamnotes-home-button {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.teamnotes-home-button svg {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.teamnotes-wrapper {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.teamnotes-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.teamnotes-title {
+  color: #2c3e50;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.teamnotes-subtitle {
+  color: #7f8c8d;
+  font-size: 1.1em;
+}
+
+.teamnotes-section {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.teamnotes-notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.teamnotes-notes-title {
+  color: #34495e;
+  font-size: 1.8em;
+  margin: 0;
+}
+
+.teamnotes-notes-count {
+  background-color: #3498db;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.teamnotes-empty-state {
+  padding: 40px;
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+.teamnotes-empty-state-icon {
+  font-size: 3em;
+  margin-bottom: 15px;
+}
+
+.teamnotes-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.teamnotes-note-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.teamnotes-note-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.teamnotes-note-card-title {
+  color: #2c3e50;
+  font-size: 1.4em;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.teamnotes-note-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.teamnotes-action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #3498db;
+  padding: 5px;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.teamnotes-note-content {
+  color: #34495e;
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.teamnotes-note-date {
+  font-size: 0.85em;
+  color: #7f8c8d;
+  text-align: right;
+}
+
+.teamnotes-primary-button {
+  padding: 12px 25px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.teamnotes-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2rem;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .teamnotes-container {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .teamnotes-home-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .teamnotes-wrapper {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .teamnotes-title {
+    font-size: 1.8rem;
+  }
+
+  .teamnotes-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .teamnotes-notes-title {
+    font-size: 1.4rem;
+  }
+
+  .teamnotes-notes-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .teamnotes-empty-state {
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  .teamnotes-empty-state-icon {
+    font-size: 2em;
+  }
+
+  .teamnotes-primary-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .teamnotes-container {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .teamnotes-title {
+    font-size: 1.5rem;
+  }
+
+  .teamnotes-notes-title {
+    font-size: 1.2rem;
+  }
+
+  .teamnotes-wrapper {
+    padding: 10px;
+  }
+}

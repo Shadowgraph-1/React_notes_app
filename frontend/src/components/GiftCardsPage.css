@@ -1,0 +1,224 @@
+/* GiftCardsPage.css */
+.giftcards-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.giftcards-home-button {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.giftcards-home-button svg {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.giftcards-wrapper {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 30px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.giftcards-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.giftcards-title {
+  color: #2c3e50;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.giftcards-subtitle {
+  color: #7f8c8d;
+  font-size: 1.1em;
+}
+
+.giftcards-section {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.giftcards-section-title {
+  color: #34495e;
+  font-size: 1.8em;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.giftcards-info-text {
+  color: #555;
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.giftcards-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.giftcards-option {
+  background-color: #e6f2ff;
+  background-image: linear-gradient(45deg, #e6f2ff 0%, #d0e7ff 100%);
+  border: 2px solid #85c1e9;
+  border-radius: 15px;
+  padding: 25px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.giftcards-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.giftcards-option-title {
+  color: #2c3e50;
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.giftcards-primary-button {
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.giftcards-form-group {
+  margin-bottom: 20px;
+}
+
+.giftcards-form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #34495e;
+  font-weight: bold;
+}
+
+.giftcards-form-input {
+  width: calc(100% - 22px);
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.1em;
+}
+
+.giftcards-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .giftcards-container {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .giftcards-home-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .giftcards-wrapper {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .giftcards-title {
+    font-size: 1.8rem;
+  }
+
+  .giftcards-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .giftcards-section-title {
+    font-size: 1.4rem;
+  }
+
+  .giftcards-options {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .giftcards-option {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .giftcards-option:hover {
+    transform: none; /* Disable hover effect on touch devices */
+  }
+
+  .giftcards-form-input {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .giftcards-primary-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .giftcards-container {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .giftcards-title {
+    font-size: 1.5rem;
+  }
+
+  .giftcards-section-title {
+    font-size: 1.2rem;
+  }
+
+  .giftcards-wrapper {
+    padding: 10px;
+  }
+}

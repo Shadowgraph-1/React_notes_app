@@ -1,0 +1,213 @@
+/* APIIntegrationPage.css */
+.api-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.api-home-button {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.api-home-button svg {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.api-wrapper {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.api-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.api-title {
+  color: #2c3e50;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.api-subtitle {
+  color: #7f8c8d;
+  font-size: 1.1em;
+}
+
+.api-section {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.api-section-title {
+  color: #34495e;
+  font-size: 1.8em;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.api-info-text {
+  color: #555;
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.api-links {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.api-primary-button,
+.api-secondary-button {
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.api-primary-button {
+  border: none;
+  background-color: #3498db;
+  color: white;
+}
+
+.api-secondary-button {
+  border: 1px solid #ccc;
+  background-color: #bdc3c7;
+  color: #333;
+}
+
+.api-code-example {
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.api-code-title {
+  color: #61dafb;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.api-pre {
+  background-color: #1a1a1a;
+  color: #f8f8f2;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin-bottom: 10px;
+  border: 1px solid #444;
+}
+
+.api-code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+}
+
+.api-code-description {
+  color: #bbb;
+  font-size: 0.95em;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .api-container {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .api-home-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .api-wrapper {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .api-title {
+    font-size: 1.8rem;
+  }
+
+  .api-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .api-section-title {
+    font-size: 1.4rem;
+  }
+
+  .api-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .api-primary-button,
+  .api-secondary-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .api-code-example {
+    padding: 15px;
+  }
+
+  .api-pre {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .api-container {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .api-title {
+    font-size: 1.5rem;
+  }
+
+  .api-section-title {
+    font-size: 1.2rem;
+  }
+
+  .api-wrapper {
+    padding: 10px;
+  }
+}

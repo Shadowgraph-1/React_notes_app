@@ -1,0 +1,233 @@
+/* PremiumSubscriptionPage.css */
+.premium-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.premium-home-button {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.premium-home-button svg {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.premium-wrapper {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+}
+
+.premium-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.premium-title {
+  color: #2c3e50;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.premium-subtitle {
+  color: #7f8c8d;
+  font-size: 1.1em;
+}
+
+.premium-section {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.premium-section-title {
+  color: #34495e;
+  font-size: 1.8em;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.premium-subscription-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.premium-subscription-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.premium-subscription-card-highlight {
+  border: 2px solid #3498db;
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
+  transform: scale(1.03);
+}
+
+.premium-card-title {
+  color: #2c3e50;
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.premium-price {
+  color: #27ae60;
+  font-size: 2.2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.premium-features-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+  text-align: left;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.premium-feature-item {
+  color: #555;
+  font-size: 1em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.premium-checkmark {
+  margin-right: 10px;
+  color: #27ae60;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.premium-primary-button,
+.premium-secondary-button {
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.premium-primary-button {
+  border: none;
+  background-color: #3498db;
+  color: white;
+}
+
+.premium-secondary-button {
+  border: 1px solid #ccc;
+  background-color: #bdc3c7;
+  color: #333;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .premium-container {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .premium-home-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .premium-wrapper {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .premium-title {
+    font-size: 1.8rem;
+  }
+
+  .premium-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .premium-section-title {
+    font-size: 1.4rem;
+  }
+
+  .premium-subscription-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .premium-subscription-card,
+  .premium-subscription-card-highlight {
+    padding: 20px;
+  }
+
+  .premium-subscription-card-highlight {
+    transform: none; /* Disable scaling on mobile */
+  }
+
+  .premium-card-title {
+    font-size: 1.6rem;
+  }
+
+  .premium-price {
+    font-size: 1.8rem;
+  }
+
+  .premium-primary-button,
+  .premium-secondary-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .premium-container {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .premium-title {
+    font-size: 1.5rem;
+  }
+
+  .premium-section-title {
+    font-size: 1.2rem;
+  }
+
+  .premium-wrapper {
+    padding: 10px;
+  }
+}
