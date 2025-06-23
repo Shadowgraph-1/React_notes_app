@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import "../components/FirstPage.css";
 import "../components/SidebarAndSupport.css";
-import AuthPage from "../components/AuthPage";
-import BlogCarousel from "../components/BlogCarousel";
+import AuthPage from "./AuthPage";
+import BlogCarousel from "./BlogCarousel";
 
 // Данные для карточек
 const CARD_DATA = [

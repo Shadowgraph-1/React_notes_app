@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomeStart from "./pages/FirstPage";
-import Header from "./components/Header";
+import Header from "./pages/Header";
 import CreateNote from './pages/CreateNote';
 import PersonalAccount from "./pages/PersonalAcc";
 
