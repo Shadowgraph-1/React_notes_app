@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/your-username/notesapp"><img src="https://img.shields.io/badge/status-active-brightgreen.svg?style=for-the-badge" alt="Status"></a>
+  <a href="https://github.com/your-username/notesapp"><img src="https://img.shields.io/badge/status-abandoned-red.svg?style=for-the-badge" alt="Status"></a>
   <a href="https://github.com/your-username/notesapp/releases"><img src="https://img.shields.io/badge/version-1.0.0-blue.svg?style=for-the-badge" alt="Version"></a>
   <a href="https://github.com/your-username/notesapp/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License"></a>
   <a href="https://twitter.com/notesapp"><img src="https://img.shields.io/badge/Twitter-@NotesApp-1DA1F2.svg?style=for-the-badge&logo=twitter" alt="Twitter"></a>
